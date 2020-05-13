@@ -17,17 +17,22 @@
     <script type="text/babel">
       const Lake = ({name}) => <h1>{name}</h1>  
       const SKiResort = ({name}) => <h1>{name}</h1>
+      const lakeList = [
+        "Echo Lake", 
+        "Maud Lake", 
+        "Cascade Lake"
+      ];
       
-      const App = ({summer}) => (
-        <div>
-          {summer 
-            ? <Lake name="Shirley Lake"/> 
-            : <SKiResort name="Crown Resort"/>}
-        </div> 
+      const App = ({lakes}) => (
+        <ul>
+          {lakes.map((lake, i) =>
+            <li key={i}>{lake}</li>  
+          )}
+        </ul> 
       )
 
       ReactDOM.render(
-        <App summer={true}/>,
+        <App lakes={lakeList}/>,
         document.getElementById("root")
       );
     </script>
